@@ -1,4 +1,5 @@
 <div class="container m-5">
+  <div class="text-center"><h4>Gestión de Usuarios</h4></div>
   <form #UserForm="ngForm" (ngSubmit)="addUser(UserForm)">
     <div class="form-row">
       <div class="form-group col-md-6">
@@ -12,16 +13,31 @@
     </div>
     <div class="form-row">
       <div class="form-group col-md-6">
-        <label for="inputEmail4">Ciudad/Municipio</label>
-        <input type="email" class="form-control" name="place" #place="ngModel" [(ngModel)]="userService.selectedUser.place" placeholder="Ciudad/Municipio">
+        <label>Ciudad/Municipio</label>
+        <input type="text" class="form-control"  #search>
+        <div class="container">
+            <div #map style="width:50%;height:250px"></div>
+          </div>
       </div>
-    </div>
-    <div class="form-row">
       <div class="form-group col-md-6">
-        <label for="inputEmail4">Cargo aspirante</label>
-        <input type="text" class="form-control" name="position" #position="ngModel" [(ngModel)]="userService.selectedUser.position" placeholder="Cargo aspirante">
+          <label for="inputEmail4">Cargo aspirante</label>
+          <select class="form-control" name="position" #position="ngModel" [(ngModel)]="userService.selectedUser.position" placeholder="Cargo aspirante">
+            <option>Concejo</option>
+            <option>Alcaldía</option>
+            <option>Asamblea</option>
+          </select>
       </div> 
     </div>
+    <div class="form-row">
+        <div class="form-group col-md-3">
+          <label for="inputEmail">latitud</label>
+          <input type="text" class="form-control" name="positionLat" #positionLat="ngModel" [(ngModel)]="userService.selectedUser.positionLat" placeholder="Nombre de usuario">
+        </div> 
+        <div class="form-group col-md-3">
+            <label for="inputEmail">longitud</label>
+            <input type="text" class="form-control" name="positionLng" #positionLng="ngModel" [(ngModel)]="userService.selectedUser.positionLng" placeholder="Nombre de usuario">
+        </div> 
+      </div>
     <div class="form-row">
       <div class="form-group col-md-3">
         <label for="inputEmail4">Nombre de usuario</label>

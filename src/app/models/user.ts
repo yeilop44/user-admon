@@ -1,6 +1,6 @@
 export class User {
     constructor (_id = '', userName='', password='', names='', surnames='', position='', place='',
-                    positionLat=0,positionLng=0,) {
+                    positionLat=0, positionLng=0,) {
       this._id = _id;
       this.userName = userName;
       this.password = password;

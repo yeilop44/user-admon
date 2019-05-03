@@ -6,6 +6,8 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { UsersComponent } from './components/users/users.component';
 
+import { AgmCoreModule } from '@agm/core';
+
 
 import { UsersService } from './services/users.service'
 
@@ -17,7 +19,11 @@ import { UsersService } from './services/users.service'
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyC69lNgQw1tqaxwZb1NCgj1yn9fvQLMaNg',
+      libraries: ['places']
+    })
   ],
   providers: [UsersService],
   bootstrap: [AppComponent]
