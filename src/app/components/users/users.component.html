@@ -1,0 +1,78 @@
+<div class="container m-5">
+  <form #UserForm="ngForm" (ngSubmit)="addUser(UserForm)">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputEmail4">Nombres</label>
+        <input type="text" class="form-control" name="names" #names="ngModel" [(ngModel)]="userService.selectedUser.names" placeholder="Nombres">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputPassword4">Apellidos</label>
+        <input type="text" class="form-control" name="surnames" #surnames="ngModel" [(ngModel)]="userService.selectedUser.surnames" placeholder="Apellidos">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputEmail4">Ciudad/Municipio</label>
+        <input type="email" class="form-control" name="place" #place="ngModel" [(ngModel)]="userService.selectedUser.place" placeholder="Ciudad/Municipio">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputEmail4">Cargo aspirante</label>
+        <input type="text" class="form-control" name="position" #position="ngModel" [(ngModel)]="userService.selectedUser.position" placeholder="Cargo aspirante">
+      </div> 
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-3">
+        <label for="inputEmail4">Nombre de usuario</label>
+        <input type="text" class="form-control" name="userName" #userName="ngModel" [(ngModel)]="userService.selectedUser.userName" placeholder="Nombre de usuario">
+      </div> 
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-3">
+        <label for="inputPassword4">Contraseña</label>
+        <input type="password" class="form-control" name="password" #password="ngModel" [(ngModel)]="userService.selectedUser.password" placeholder="Contraseña">
+      </div>
+    </div> 
+    <button type="submit" class="btn btn-primary">Guardar</button>
+  </form>
+</div>
+
+
+<div class="container">
+
+	<table class="table table-hover">
+	  <thead>
+	    <tr>
+        <th scope="col">#</th>
+     
+	      <th scope="col">Nombres</th>
+	      <th scope="col">Apellidos</th>
+	      <th scope="col">Nombre Usuario</th>
+	      <th scope="col">Cargo aspirante</th>
+	      <th scope="col">Ciudad/Municipio</th>
+        <th scope="col">Editar</th>
+        <th scope="col">Eliminar</th>
+
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr *ngFor="let user of users; let i = index ">
+	      <th scope="row">{{i + 1}}</th>
+        <td>{{ user.names }}</td>
+	      <td>{{ user.surnames }}</td>
+	      <td>{{ user.userName }}</td>
+	      <td>{{ user.position }}</td>
+	      <td>{{ user.place }}</td>
+        <td>
+          <button type="button" class="btn btn-outline-primary" >Editar</button>
+        </td>
+        <td>
+          <button type="button" class="btn btn-outline-danger">Eliminar</button>
+        </td>
+	    </tr>
+	  </tbody>
+  </table>  
+</div>
+
+
